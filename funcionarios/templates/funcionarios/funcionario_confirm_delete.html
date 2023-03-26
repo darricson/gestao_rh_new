@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    delete<hr>
+    <form method="post">
+        {% csrf_token %}
+        <h1>Você realmente deseja apagar o {{ obj }}?</h1>
+        {{ form }}
+        <button type="submit" class="btn btn-danger" >Confirmar</button><br><br>
+        <a href="{% url 'list_funcionarios' %}">voltar</a>
+    </form>
+
+{% endblock %}

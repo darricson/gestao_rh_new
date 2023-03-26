@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+
 urlpatterns = [
     
     path('', include('core.urls')),
@@ -24,4 +25,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # url que força a chamada para a tela de login
     path('accounts/', include('django.contrib.auth.urls')),
+    path('departamentos/', include('departamentos.urls')),
 ]

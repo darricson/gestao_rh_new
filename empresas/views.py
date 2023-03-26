@@ -20,3 +20,4 @@ class EmpresaEdit(UpdateView):
     model = Empresa
     fields = ['nome']
     
+    
