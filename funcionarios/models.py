@@ -1,4 +1,5 @@
 from django.db import models
+# importado o modulo User para pegarmos a sessão do usuario
 from django.contrib.auth.models import User
 from departamentos.models import Departamento
 from empresas.models import Empresa
@@ -7,10 +8,11 @@ from empresas.models import Empresa
 
 
 class Funcionario(models.Model):
-    name = models.CharField(max_length=50, help_text='Nome do funcionario')
-    user = models.ForeignKey(User, on_delete=models.PROTECT)
+    nome = models.CharField(max_length=50, help_text='Nome do funcionario')
+    user = models.OneToOneField(User, on_delete=models.PROTECT)
     departamentos = models.ManyToManyField(Departamento)
-    empresa = models.ForeignKey(Empresa, on_delete=models.PROTECT)
+    empresa = models.ForeignKey(Empresa, on_delete=models.PROTECT,
+                                null=True, blank=True)
     
     def __str__(self):
-        return self.name
+        return self.nome

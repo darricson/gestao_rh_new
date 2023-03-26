@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    List <hr>
+    {% for funcionario in object_list %}
+     <a href="">{{ funcionario }}</a><br>
+    {% endfor %}
+{% endblock %}

@@ -20,6 +20,7 @@ urlpatterns = [
     
     path('', include('core.urls')),
     path('funcionarios/', include('funcionarios.urls')),
+    path('empresas/', include('empresas.urls')),
     path('admin/', admin.site.urls),
     # url que força a chamada para a tela de login
     path('accounts/', include('django.contrib.auth.urls')),

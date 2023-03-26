@@ -6,10 +6,23 @@
       Uma de três colunas
     </div>
     <div class="col-sm">
-      duas de três colunas
+      olá {{ usuario.funcionario.nome }}, 
+      {% if usuario.funcionario.empresa %}
+      da empresa: {{ usuario.funcionario.empresa }}
+      {% endif %}
+
     </div>
     <div class="col-sm">
-      <a href="{% url 'logout' %}">Logout</a>
+      <a href="{% url 'list_funcionarios' %}">Gerenciar Funcionarios</a>
     </div>
+    <div class="col-sm">
+      <a href="{% url 'logout' %}">Logout </a>
+      {% if usuario.funcionario.empresa %}
+        <a href="{% url 'edit_empresa' usuario.funcionario.empresa.id %}">Editar Empresa</a>
+      {% else %}
+        <a href="{% url 'create_empresa' %}">Criar Empresa</a>
+      {% endif %}
+    </div>
+   
   </div>
 {% endblock %}
